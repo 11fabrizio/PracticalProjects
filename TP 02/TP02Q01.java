@@ -1,0 +1,419 @@
+class Game{
+    // Declaração de variáveis
+    private int app_id;
+    private String name;
+    private String release_data;
+    private String owners;
+    private int age;
+    private float price;
+    private int dlcs;
+    private String languages;
+    private String website;
+    private Boolean windows;
+    private Boolean mac;
+    private Boolean linux;
+    private float upvotes;
+    private int avg_pt;
+    private String developers;
+    private String genres;
+    // Construtor vazio 
+    public Game() {
+        setAppId(0);
+        setName("");
+        setData("");
+        setOwners("");
+        setAge(0);
+        setPrice(0);
+        setDlcs(0);
+        setLanguages(null);
+        setWebsite("");
+        setWindows(true);
+        setMac(true);
+        setLinux(true);
+        setUpVotes(0);
+        setAvgPt(0);
+        setDevelopers("");
+        setGenres("");
+    }
+    // Construtor padrão
+    public Game(int AppId,String nome,String data,String owner,int idade,float preco,int dlc,String linguas, String web,Boolean window,Boolean mec,Boolean lin,float upvotos,int avg,String develop,String gen){
+        setAppId(AppId);
+        setName(nome);
+        setData(data);
+        setOwners(owner);
+        setAge(idade);
+        setPrice(preco);
+        setDlcs(dlc);
+        setLanguages(linguas);
+        setWebsite(web);
+        setWindows(window);
+        setMac(mec);
+        setLinux(lin);
+        setUpVotes(upvotos);
+        setAvgPt(avg);
+        setDevelopers(develop);
+        setGenres(gen);
+    }
+    // Sets e Gets
+    public void setAppId(int AppId){
+        app_id=AppId;
+    }
+    public int getAppId(){
+        return app_id;
+    }
+    public void setName(String nome){
+        name = nome;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setData(String data){
+        release_data=data;
+    }
+    public String getData(){
+        return release_data;
+    }
+    public void setOwners(String owner){
+        owners=owner;
+    }
+    public String getOwners(){
+        return owners;
+    }
+    public void setAge(int idade){
+        age=idade;
+    }
+    public int getAge(){
+        return age;
+    }
+    public void setPrice(float preco){
+        price=preco;
+    }
+    public float getPrice(){
+        return price;
+    }
+    public void setDlcs(int dlc){
+        dlcs=dlc;
+    }
+    public int getDlcs(){
+        return dlcs;
+    }
+    public void setLanguages(String linguas){
+        languages=linguas;
+    }
+    public String getLanguages(){
+        return languages;
+    }
+    public void setWebsite(String web){
+        website=web;
+    }
+    public String getWebsite(){
+        return website;
+    }
+    public void setWindows(Boolean window){
+        windows=window;
+    }
+    public Boolean getWindows(){
+        return windows;
+    }
+    public void setMac(Boolean mec){
+        mac=mec;
+    }
+    public Boolean getMac(){
+        return mac;
+    }
+    public void setLinux(Boolean lin){
+        linux=lin;
+    }
+    public Boolean getLinux(){
+        return linux;
+    }
+    public void setUpVotes(float upvotos){
+        upvotes=upvotos;
+    }
+    public float getUpVotes(){
+        return upvotes;
+    }
+    public void setAvgPt(int avg){
+        avg_pt=avg;
+    }
+    public int getAvgPt(){
+        return avg_pt;
+    }
+    public void setDevelopers(String develop){
+        developers=develop;
+    }
+    public String getDevelopers(){
+        return developers;
+    }
+    public void setGenres(String gen){
+        genres=gen;
+    }
+    public String getGenres(){
+        return genres;
+    }
+    public void Imprime(){
+        MyIO.print(getAppId()+" ");
+        MyIO.print(getName()+" ");
+        MyIO.print(getData()+" ");
+        MyIO.print(getOwners()+" ");
+        MyIO.print(getAge()+" ");
+        MyIO.print(getPrice()+" ");
+        MyIO.print(getDlcs()+" ");
+        MyIO.print(getLanguages()+" ");
+        MyIO.print(getWebsite()+" ");
+        if(getWindows()==true){
+            MyIO.print("true ");
+        }
+        else{
+            MyIO.print("false ");
+        }
+        if(getMac()==true){
+            MyIO.print("true ");
+        }
+        else{
+            MyIO.print("false ");
+        }
+        if(getLinux()==true){
+            MyIO.print("true ");
+        }
+        else{
+            MyIO.print("false ");
+        }
+        MyIO.printf("%.0f",getUpVotes()*100);
+        MyIO.print("% ");
+        if(getAvgPt()==0){
+            MyIO.print("null ");
+        }
+        else{
+            MyIO.print(getAvgPt()/60+"h "+getAvgPt()%60+"m ");
+        }
+        MyIO.print(getDevelopers()+" ");
+        MyIO.println(getGenres());
+
+    }
+    
+}
+
+public class TP02Q01 {
+    public static void main(String[] args){
+        // Criar vetor com objetos jogos
+        Game[] jogo = new Game[1000];
+        // Contador do vetor de objetos
+        int cont=0;
+        String ID = MyIO.readLine();
+        while(ID.equals("FIM")==false){
+            String linhaf="";
+            Arq.openRead("games.csv");
+            int lixo=0; // Quebra a repetição quando acha linha do ID do jogo
+            while(Arq.hasNext()&&lixo==0){
+                //System.out.println(conta);
+                // Olhar CSV na linha 1276 item 865180, recolocar os caracteres chineses caso der erro no verde
+                String linha = Arq.readLine();
+                int max = (linha.length() < ID.length()) ? linha.length() : ID.length();
+                String verificaID = linha.substring(0,max);
+                if(verificaID.equals(ID)){
+                    linhaf=linha;
+                    lixo=1;
+                }
+            }
+            // Achar posição das vírgulas
+            int[] V = new int[16];
+            int a=0;
+            for(int i=0;i<linhaf.length();i++){
+                if(linhaf.charAt(i)==91){
+                    for(int x=i;x<linhaf.length();x++){
+                        if(linhaf.charAt(x)==93){
+                            i=x;
+                            x=linhaf.length();
+                        }
+                    }
+                }
+                else if(linhaf.charAt(i)==34){
+                    for(int x=i+1;x<linhaf.length();x++){
+                        if(linhaf.charAt(x)==34){
+                            i=x;
+                            x=linhaf.length();
+                        }
+                    }
+                }
+                else if(linhaf.charAt(i)==44){
+                    V[a]=i;
+                    a++;
+                }
+            }
+            // Criar objeto jogo
+            jogo[cont] = new Game();
+            // Enviar o AppId
+            int AppID = Integer.parseInt(ID);
+            jogo[cont].setAppId(AppID);
+            //MyIO.print(jogo.getAppId()+" ");
+            // Enviar nome do jogo
+            String nome = linhaf.substring(V[0]+1, V[1]);
+            jogo[cont].setName(nome);
+            //MyIO.print(jogo.getName()+" ");
+            // Enviar data (terminar de fazer, falta transforma em Date pra mandar pro set)
+            String data = linhaf.substring(V[1]+2,V[1]+5)+"/"+linhaf.substring(V[2]-5, V[2]-1);
+            jogo[cont].setData(data);
+            //MyIO.print(jogo.getData()+" ");
+            // Enviar owners
+            String owners = linhaf.substring(V[2]+1, V[3]);
+            jogo[cont].setOwners(owners);
+            //MyIO.print(jogo.getOwners()+" ");
+            // Enviar age
+            int age = Integer.parseInt(linhaf.substring(V[3]+1, V[4]));
+            jogo[cont].setAge(age);
+            //MyIO.print(jogo.getAge()+" ");
+            // Enviar preço
+            float preco = Float.valueOf(linhaf.substring(V[4]+1,V[5]));
+            jogo[cont].setPrice(preco);
+            //MyIO.print(jogo.getPrice()+" ");
+            // Enviar dlc
+            int dlc = Integer.parseInt(linhaf.substring(V[5]+1,V[6]));
+            jogo[cont].setDlcs(dlc);
+            //MyIO.print(jogo.getDlcs()+" ");
+            // Enviar vetor linguagens
+            String[] linguas = new String[1000];
+            String linhaG="";
+            a=0;
+            for(int x=V[6]+2;x<V[7];x++){
+                if(linhaf.charAt(x)==39){
+                    if(a==0){
+                        linguas[a]="[";
+                        linhaG+="[";
+                    }
+                    else{
+                        linguas[a]=" ";
+                        linhaG+=" ";
+                    }
+                    for(int n=x+1;n<V[7];n++){
+                        if(linhaf.charAt(n)==39){
+                            linguas[a]+=linhaf.substring(x+1, n);
+                            linhaG+=linhaf.substring(x+1, n);
+                            if(linhaf.charAt(n+1)==44){
+                                linguas[a]+=",";
+                                linhaG+=",";
+                            }
+                            else{
+                                linguas[a]+="]";
+                                linhaG+="]";
+                            }
+                            //MyIO.print(linguas[a]);
+                            a++;
+                            x=n;
+                            n=V[7];
+                        }
+                    }
+                }
+            }
+            jogo[cont].setLanguages(linhaG);
+            //MyIO.print(jogo.getLanguages());
+            //MyIO.print(" ");
+            // Enviar website
+            String web = linhaf.substring(V[7]+1,V[8]);
+            if(web.length()==0){
+                jogo[cont].setWebsite("null");
+            }
+            else{
+                jogo[cont].setWebsite(web);
+            } 
+            //MyIO.print(jogo.getWebsite()+" ");
+            // Enviar windows
+            Boolean windows;
+            if((linhaf.substring(V[8]+1, V[9]).equals("True"))){
+                windows=true;
+                //MyIO.print("true ");
+            }
+            else{
+                windows=false;
+                //MyIO.print("false ");
+            }
+            jogo[cont].setWindows(windows);
+            // Enviar Mac
+            Boolean mac;
+            if((linhaf.substring(V[9]+1, V[10]).equals("True"))){
+                mac=true;
+                //MyIO.print("true ");
+            }
+            else{
+                mac=false;
+                //MyIO.print("false ");
+            }
+            jogo[cont].setMac(mac);
+            // Enviar Linux
+            Boolean linux;
+            if((linhaf.substring(V[10]+1, V[11]).equals("True"))){
+                linux=true;
+                //MyIO.print("true ");
+            }
+            else{
+                linux=false;
+                //MyIO.print("false ");
+            }
+            jogo[cont].setLinux(linux);
+            // Porcentagem votos positivos
+            int positivo = Integer.parseInt(linhaf.substring(V[11]+1,V[12]));
+            int negativo = Integer.parseInt(linhaf.substring(V[12]+1,V[13]));
+            float media = (float)positivo/((float)positivo + (float)negativo);
+            jogo[cont].setUpVotes(media);
+            //MyIO.printf("%.0f",jogo.getUpVotes()*100);
+            //MyIO.print("% ");
+            // Horas contabilizadas
+            int hTotal = Integer.parseInt(linhaf.substring(V[13]+1, V[14]));
+            int horas = hTotal/60;
+            int min = hTotal%60;
+            if(horas==0&&min==0){
+                jogo[cont].setAvgPt(0);
+                //MyIO.print("null ");
+            }
+            else{
+                jogo[cont].setAvgPt(hTotal);
+                //System.out.printf("%dh ",horas);
+                //System.out.printf("%dm ",min);
+            }
+            // Empresa do jogo
+            String empresa = linhaf.substring(V[14]+1, V[15]);
+            jogo[cont].setDevelopers(empresa);
+            //MyIO.print(empresa+" ");
+            // Genêro do jogo
+            //String genero = "[";
+            String generoG = "[";
+            a=0;
+            if(linhaf.charAt(V[15]+1)==34){
+                for(int i=V[15]+2;i<linhaf.length();i++){
+                    for(int x=i;x<linhaf.length();x++){
+                        if(linhaf.charAt(x)==44){
+                            //genero+=linhaf.substring(i, x);
+                            generoG+=linhaf.substring(i, x);
+                            //genero+=", ";
+                            generoG+=", ";
+                            i=x;
+                            x=linhaf.length();
+                        }
+                        else if(linhaf.charAt(x)==34){
+                            //genero+=linhaf.substring(i, x);
+                            generoG+=linhaf.substring(i, x);
+                            //genero+="]";
+                            generoG+="]";
+                            i=linhaf.length();
+                            x=linhaf.length();
+                        }
+                    }
+                }
+            }
+            else{
+                generoG+=linhaf.substring(V[15]+1, linhaf.length());
+                //genero+=linhaf.substring(V[15]+1, linhaf.length());
+                generoG+="]";
+                //genero+="]";
+            }
+            jogo[cont].setGenres(generoG);
+            //MyIO.print(jogo.getGenres()+"\n");
+            jogo[cont].Imprime();
+            //System.out.println(linhaf.replace(","," "));
+            //System.out.println("\n"+linhaf);
+            // Incrementa contador
+            cont++;
+            ID=MyIO.readLine();
+        }
+    }
+}

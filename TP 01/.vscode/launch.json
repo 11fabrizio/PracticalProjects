@@ -1,0 +1,171 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch TP01Q04",
+      "request": "launch",
+      "mainClass": "TP01Q04",
+      "projectName": "TP 01_3f1278c4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q08",
+      "request": "launch",
+      "mainClass": "TP01Q08",
+      "projectName": "TP 01_3f1278c4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01EX08",
+      "request": "launch",
+      "mainClass": "TP01EX08",
+      "projectName": "TP 01_3f1278c4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q11",
+      "request": "launch",
+      "mainClass": "TP01Q11",
+      "projectName": "TP 01_3f1278c4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q01",
+      "request": "launch",
+      "mainClass": "TP01Q01",
+      "projectName": "TP 01_3f1278c4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q03",
+      "request": "launch",
+      "mainClass": "TP01Q03",
+      "projectName": "TP 01_3f1278c4"
+    },
+    {
+      "type": "java",
+      "name": "Launch Questao11",
+      "request": "launch",
+      "mainClass": "Questao11",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q15",
+      "request": "launch",
+      "mainClass": "TP01Q15",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q14",
+      "request": "launch",
+      "mainClass": "TP01Q14",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q13",
+      "request": "launch",
+      "mainClass": "TP01Q13",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q11",
+      "request": "launch",
+      "mainClass": "TP01Q11",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch palindromoOBI",
+      "request": "launch",
+      "mainClass": "palindromoOBI",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q09",
+      "request": "launch",
+      "mainClass": "TP01Q09",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01EX08",
+      "request": "launch",
+      "mainClass": "TP01EX08",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q08",
+      "request": "launch",
+      "mainClass": "TP01Q08",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch ExemploURL",
+      "request": "launch",
+      "mainClass": "ExemploURL",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q03",
+      "request": "launch",
+      "mainClass": "TP01Q03",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q06",
+      "request": "launch",
+      "mainClass": "TP01Q06",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q05",
+      "request": "launch",
+      "mainClass": "TP01Q05",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q04",
+      "request": "launch",
+      "mainClass": "TP01Q04",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "type": "java",
+      "name": "Launch TP01Q01",
+      "request": "launch",
+      "mainClass": "TP01Q01",
+      "projectName": "TP 01_fc9cca4"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/fabrizio/Desktop/TP 01",
+      "program": "c:/Users/fabrizio/Desktop/TP 01/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
